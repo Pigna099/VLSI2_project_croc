@@ -11,7 +11,7 @@
 ## Global ##
 ############
 
-source src/instances.tcl
+source openroad/src/instances.tcl
 
 
 #############################

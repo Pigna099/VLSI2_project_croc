@@ -16,7 +16,7 @@ if {[file exists "../technology"]} {
 } else {
 	puts "0. Executing init_tech: load technology from Github PDK"
 	if {![info exists pdk_dir]} {
-		set pdk_dir "../ihp13/pdk"
+		set pdk_dir "./ihp13/pdk"
 	}
 	set pdk_cells_lib ${pdk_dir}/ihp-sg13g2/libs.ref/sg13g2_stdcell/lib
 	set pdk_sram_lib  ${pdk_dir}/ihp-sg13g2/libs.ref/sg13g2_sram/lib

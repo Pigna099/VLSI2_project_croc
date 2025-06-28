@@ -12,7 +12,7 @@ cd $klayout_dir
 ### project  ###
 ################
 topcell="croc_chip"
-defpath="$root_dir/openroad/out/croc.def"
+defpath="$root_dir/openroad/out/croc_chip.def"
 
 
 ################
