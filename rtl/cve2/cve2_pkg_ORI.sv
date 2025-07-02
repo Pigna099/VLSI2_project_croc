@@ -174,11 +174,7 @@ package cve2_pkg;
     ALU_CRC32_H,
     ALU_CRC32C_H,
     ALU_CRC32_W,
-    ALU_CRC32C_W,
-
-    //ADDED CODE//
-    ALU_MAC //MAC
-    //FINISH ADDED CODE//
+    ALU_CRC32C_W
   } alu_op_e;
 
   typedef enum logic [1:0] {

@@ -460,10 +460,6 @@ module cve2_decoder #(
             {7'b000_0000, 3'b101},
             {7'b010_0000, 3'b101}: illegal_insn = 1'b0;
 
-            //ADDED CODE//
-            {7'b100_0000, 3'b000},  //MAC 
-            //FINISH ADDED CODE//
-
             // RV32B zba
             {7'b001_0000, 3'b010}, // sh1add
             {7'b001_0000, 3'b100}, // sh2add
@@ -978,10 +974,6 @@ module cve2_decoder #(
             {7'b000_0000, 3'b001}: alu_operator_o = ALU_SLL;   // Shift Left Logical
             {7'b000_0000, 3'b101}: alu_operator_o = ALU_SRL;   // Shift Right Logical
             {7'b010_0000, 3'b101}: alu_operator_o = ALU_SRA;   // Shift Right Arithmetic
-
-            //ADDED CODE//
-            {7'b100_0000, 3'b000}: alu_operator_o = ALU_MAC;   //MAC 
-            //FINISH ADDED CODE//
 
             // RV32B ALU Operations
             {7'b011_0000, 3'b001}: begin
