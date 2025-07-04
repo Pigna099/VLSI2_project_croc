@@ -30,12 +30,6 @@ module cve2_register_file_ff #(
   output logic [DataWidth-1:0] rdata_b_o,
 
 
-  // ======== USER CODE BEGIN ========
-  //Read port Rd
-  input  logic [4:0]           raddr_c_i,
-  output logic [DataWidth-1:0] rdata_c_o,
-  // ======== USER CODE END ========
-
   // Write port W1
   input  logic [4:0]           waddr_a_i,
   input  logic [DataWidth-1:0] wdata_a_i,
@@ -74,9 +68,6 @@ module cve2_register_file_ff #(
 
   assign rdata_a_o = rf_reg[raddr_a_i];
   assign rdata_b_o = rf_reg[raddr_b_i];
-  // ======== USER CODE BEGIN ========
-  assign rdata_c_o = rf_reg[raddr_c_i];
-  // ======== USER CODE END ========
 
   // Signal not used in FF register file
   logic unused_test_en;

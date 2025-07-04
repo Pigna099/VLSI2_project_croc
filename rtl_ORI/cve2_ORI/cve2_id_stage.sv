@@ -61,8 +61,6 @@ module cve2_id_stage #(
   output cve2_pkg::alu_op_e         alu_operator_ex_o,
   output logic [31:0]               alu_operand_a_ex_o,
   output logic [31:0]               alu_operand_b_ex_o,
-  //=====================================================================================
-  output logic [31:0]               alu_operand_c_ex_o, // USER CODE: read value from rd
 
   // Multicycle Operation Stage Register
   input  logic [1:0]                imd_val_we_ex_i,
@@ -134,10 +132,6 @@ module cve2_id_stage #(
   input  logic [31:0]               rf_rdata_b_i,
   output logic                      rf_ren_a_o,
   output logic                      rf_ren_b_o,
-  //====================================================================================
-  output logic [4:0]                rf_raddr_c_o, // USER CODE
-  input  logic [31:0]               rf_rdata_c_i, // USER CODE
-  output logic                      rf_ren_c_o;   // USER CODE
 
   // Register file write (via writeback)
   output logic [4:0]                rf_waddr_id_o,
@@ -209,18 +203,12 @@ module cve2_id_stage #(
   // Read enables should only be asserted for valid and legal instructions
   assign rf_ren_a = instr_valid_i & ~instr_fetch_err_i & ~illegal_insn_o & rf_ren_a_dec;
   assign rf_ren_b = instr_valid_i & ~instr_fetch_err_i & ~illegal_insn_o & rf_ren_b_dec;
-  //==========================================================
-  assign rf_ren_c = instr_valid_i & ~instr_fetch_err_i & ~illegal_insn_o & rf_ren_c_dec; // USER CODE
 
   assign rf_ren_a_o = rf_ren_a;
   assign rf_ren_b_o = rf_ren_b;
-  //==========================================================
-  assign rf_ren_c_o = rf_ren_c; // USER CODE
 
   logic [31:0] rf_rdata_a_fwd;
   logic [31:0] rf_rdata_b_fwd;
-  //==========================================================
-  logic [31:0] rf_rdata_c_fwd; // USER CODE
 
   // ALU Control
   alu_op_e     alu_operator;
@@ -385,12 +373,9 @@ module cve2_id_stage #(
 
     .rf_raddr_a_o(rf_raddr_a_o),
     .rf_raddr_b_o(rf_raddr_b_o),
-    //===============================================================================
-    .rf_raddr_c_o(rf_raddr_c_o), // USER CODE
     .rf_waddr_o  (rf_waddr_id_o),
     .rf_ren_a_o  (rf_ren_a_dec),
     .rf_ren_b_o  (rf_ren_b_dec),
-    .rf_ren_c_o  (rf_ren_c_dec),  // USER CODE
 
     // ALU
     .alu_operator_o    (alu_operator),

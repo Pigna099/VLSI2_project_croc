@@ -57,9 +57,6 @@ module cve2_decoder #(
   output logic [4:0]           rf_waddr_o,
   output logic                 rf_ren_a_o,          // Instruction reads from RF addr A
   output logic                 rf_ren_b_o,          // Instruction reads from RF addr B
-  // USER CODE BEGIN
-  output logic                 rf_ren_c_o,          // Instruction reads from RF addr C
-  // USER CODE END
 
   // ALU
   output cve2_pkg::alu_op_e    alu_operator_o,        // ALU operation selection
@@ -212,7 +209,6 @@ module cve2_decoder #(
     rf_we                 = 1'b0;
     rf_ren_a_o            = 1'b0;
     rf_ren_b_o            = 1'b0;
-    rf_ren_c_o            = 1'b0; // USER CODE
 
     csr_access_o          = 1'b0;
     csr_illegal           = 1'b0;
@@ -463,12 +459,6 @@ module cve2_decoder #(
             {7'b000_0000, 3'b001},
             {7'b000_0000, 3'b101},
             {7'b010_0000, 3'b101}: illegal_insn = 1'b0;
-
-            //ADDED CODE//
-            {7'b100_0000, 3'b000}: begin // MAC
-              rf_ren_c_o = 1'b1;  // read enable for rd
-            end
-            //FINISH ADDED CODE//
 
             // RV32B zba
             {7'b001_0000, 3'b010}, // sh1add
@@ -984,10 +974,6 @@ module cve2_decoder #(
             {7'b000_0000, 3'b001}: alu_operator_o = ALU_SLL;   // Shift Left Logical
             {7'b000_0000, 3'b101}: alu_operator_o = ALU_SRL;   // Shift Right Logical
             {7'b010_0000, 3'b101}: alu_operator_o = ALU_SRA;   // Shift Right Arithmetic
-
-            //ADDED CODE//
-            {7'b100_0000, 3'b000}: alu_operator_o = ALU_MAC;   //MAC 
-            //FINISH ADDED CODE//
 
             // RV32B ALU Operations
             {7'b011_0000, 3'b001}: begin

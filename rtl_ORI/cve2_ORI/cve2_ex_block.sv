@@ -19,7 +19,6 @@ module cve2_ex_block #(
   input  cve2_pkg::alu_op_e     alu_operator_i,
   input  logic [31:0]           alu_operand_a_i,
   input  logic [31:0]           alu_operand_b_i,
-  input  logic [31:0]           alu_operand_c_i,       // USER CODE: read value from rd
   input  logic                  alu_instr_first_cycle_i,
 
   // Multiplier/Divider
@@ -60,11 +59,6 @@ module cve2_ex_block #(
   logic [ 1:0] alu_imd_val_we;
   logic [33:0] multdiv_imd_val_d[2];
   logic [ 1:0] multdiv_imd_val_we;
-
-  // ========USER CODE BEGIN========
-  logic [31:0] mac_result; // Result of the MAC operation
-  logic [31:0] alu_result_raw; // Raw ALU result before MAC operation
-  // ========USER CODE END========
 
   /*
     The multdiv_i output is never selected if RV32M=RV32MNone
@@ -113,8 +107,7 @@ module cve2_ex_block #(
     .multdiv_sel_i      (multdiv_sel),
     .adder_result_o     (alu_adder_result_ex_o),
     .adder_result_ext_o (alu_adder_result_ext),
-    //.result_o          (alu_result),
-    .result_o           (alu_result_raw),  // Raw ALU result before MAC operation
+    .result_o           (alu_result),
     .comparison_result_o(alu_cmp_result),
     .is_equal_result_o  (alu_is_equal_result)
   );
@@ -184,26 +177,4 @@ module cve2_ex_block #(
   // final cycle of ALU operation).
   assign ex_valid_o = multdiv_sel ? multdiv_valid : ~(|alu_imd_val_we);
 
-  // ========USER CODE BEGIN========
-  /////////
-  // MAC //
-  /////////
-  // TODO: check if acc_i is really what we want to use as accumulator
-  cve2_mac mac_i (
-    .alu_operator_i (alu_operator_i),
-    .op_a_i        (alu_operand_a_i),
-    .op_b_i        (alu_operand_b_i),
-    .acc_i         (alu_operand_c_i),
-    .result_o      (mac_result)
-  );
-
-  // MUX: select MAC result if ALU_MAC, else normal ALU result
-  always_comb begin
-    if (alu_operator_i == cve2_pkg::ALU_MAC)
-      assign alu_result = mac_result;
-    else
-      assign alu_result = alu_result_raw;
-  end
-
-  // ========USER CODE END========
 endmodule
