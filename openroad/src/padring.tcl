@@ -46,6 +46,7 @@ set padW     80; # pad width (beachfront)
 set chipH  1760; # left/right (height)
 set chipW  1760; # top/bottom (width)
 
+
 #Edge: LEFT (top to bottom)
 set numPads 16
 set offset 20
