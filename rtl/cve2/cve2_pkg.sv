@@ -176,7 +176,7 @@ package cve2_pkg;
     ALU_CRC32_W,
     ALU_CRC32C_W,
 
-    //ADDED CODE//
+    //=====================================================ADDED CODE//
     ALU_MAC //MAC
     //FINISH ADDED CODE//
   } alu_op_e;
