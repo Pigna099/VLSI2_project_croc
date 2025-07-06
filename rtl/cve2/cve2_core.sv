@@ -403,8 +403,6 @@ module cve2_core import cve2_pkg::*; #(
     .alu_operator_ex_o (alu_operator_ex),
     .alu_operand_a_ex_o(alu_operand_a_ex),
     .alu_operand_b_ex_o(alu_operand_b_ex),
-    // ====================================================================================
-    .alu_operand_c_ex_o(alu_operand_c_ex),  // USER CODE
 
     .imd_val_q_ex_o (imd_val_q_ex),
     .imd_val_d_ex_i (imd_val_d_ex),
@@ -510,8 +508,6 @@ module cve2_core import cve2_pkg::*; #(
     .alu_operand_a_i        (alu_operand_a_ex),
     .alu_operand_b_i        (alu_operand_b_ex),
     .alu_instr_first_cycle_i(instr_first_cycle_id),
-    // =====================================================================================
-    .alu_operand_c_i        (alu_operand_c_ex),  // USER CODE
 
     // Multipler/Divider signal from ID stage
     .multdiv_operator_i   (multdiv_operator_ex),
@@ -669,8 +665,6 @@ module cve2_core import cve2_pkg::*; #(
     .rdata_a_o(rf_rdata_a),
     .raddr_b_i(rf_raddr_b),
     .rdata_b_o(rf_rdata_b),
-    //=======================================================================
-    .raddr_c_i(rf_raddr_c),
     .rdata_c_o(rf_rdata_c),
     .waddr_a_i(rf_waddr_wb),
     .wdata_a_i(rf_wdata_wb),

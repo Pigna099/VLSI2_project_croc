@@ -61,8 +61,6 @@ module cve2_id_stage #(
   output cve2_pkg::alu_op_e         alu_operator_ex_o,
   output logic [31:0]               alu_operand_a_ex_o,
   output logic [31:0]               alu_operand_b_ex_o,
-  //=====================================================================================
-  output logic [31:0]               alu_operand_c_ex_o, // USER CODE: read value from rd
 
   // Multicycle Operation Stage Register
   input  logic [1:0]                imd_val_we_ex_i,
@@ -124,7 +122,8 @@ module cve2_id_stage #(
   input  logic                      trigger_match_i,
 
   // Write back signal
-  input  logic [31:0]               result_ex_i,
+  //=====================================================================================
+  input  logic [31:0]               result_ex_i, // THIS WAS ALREADY HERE
   input  logic [31:0]               csr_rdata_i,
 
   // Register file read
@@ -134,10 +133,6 @@ module cve2_id_stage #(
   input  logic [31:0]               rf_rdata_b_i,
   output logic                      rf_ren_a_o,
   output logic                      rf_ren_b_o,
-  //====================================================================================
-  output logic [4:0]                rf_raddr_c_o, // USER CODE
-  input  logic [31:0]               rf_rdata_c_i, // USER CODE
-  output logic                      rf_ren_c_o;   // USER CODE
 
   // Register file write (via writeback)
   output logic [4:0]                rf_waddr_id_o,
@@ -385,12 +380,11 @@ module cve2_id_stage #(
 
     .rf_raddr_a_o(rf_raddr_a_o),
     .rf_raddr_b_o(rf_raddr_b_o),
-    //===============================================================================
-    .rf_raddr_c_o(rf_raddr_c_o), // USER CODE
     .rf_waddr_o  (rf_waddr_id_o),
     .rf_ren_a_o  (rf_ren_a_dec),
     .rf_ren_b_o  (rf_ren_b_dec),
-    .rf_ren_c_o  (rf_ren_c_dec),  // USER CODE
+    //===========================================================
+    .mac_en_o    (rf_ren_c_dec),  // USER CODE
 
     // ALU
     .alu_operator_o    (alu_operator),
@@ -420,6 +414,23 @@ module cve2_id_stage #(
     .jump_in_dec_o  (jump_in_dec),
     .branch_in_dec_o(branch_in_dec)
   );
+
+  // ========USER CODE BEGIN================================================
+  /////////////
+  // MAC MUX //
+  /////////////
+  
+  assign mux_out = mac_en_o ? y : x;
+
+  cve2_mac_controller mac__controller_i (
+    .alu_operator_i (alu_operator_i),
+    .mac_en_i       (mac_en_o),
+    .op_b_i        (alu_operand_b_i),
+    .acc_i         (alu_operand_c_i),
+    .result_o      (mac_result)
+  );
+
+  // =========USER CODE END================================================
 
   /////////////////////////////////
   // CSR-related pipeline flushes //

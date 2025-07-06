@@ -57,8 +57,8 @@ module cve2_decoder #(
   output logic [4:0]           rf_waddr_o,
   output logic                 rf_ren_a_o,          // Instruction reads from RF addr A
   output logic                 rf_ren_b_o,          // Instruction reads from RF addr B
-  // USER CODE BEGIN
-  output logic                 rf_ren_c_o,          // Instruction reads from RF addr C
+  // ===================================================================
+  output logic                 mac_en_o,          // MAC enable signal
   // USER CODE END
 
   // ALU
@@ -212,7 +212,8 @@ module cve2_decoder #(
     rf_we                 = 1'b0;
     rf_ren_a_o            = 1'b0;
     rf_ren_b_o            = 1'b0;
-    rf_ren_c_o            = 1'b0; // USER CODE
+    // ===================================================================
+    mac_en_o              = 1'b0; // USER CODE 
 
     csr_access_o          = 1'b0;
     csr_illegal           = 1'b0;
@@ -464,9 +465,10 @@ module cve2_decoder #(
             {7'b000_0000, 3'b101},
             {7'b010_0000, 3'b101}: illegal_insn = 1'b0;
 
-            //ADDED CODE//
+            // ===================================================================
             {7'b100_0000, 3'b000}: begin // MAC
-              rf_ren_c_o = 1'b1;  // read enable for rd
+              mac_en_o = 1'b1;  // read enable for rd
+              alu_operator_o = ALU_MAC;
             end
             //FINISH ADDED CODE//
 
