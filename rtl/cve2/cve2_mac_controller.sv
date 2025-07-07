@@ -62,7 +62,7 @@ module cve2_mac_controller (
                 end
             end
             MUL: begin
-                alu_operator_d = cve2_pkg::ALU_MUL; // THIS IS NOT VALID
+                alu_operator_d = cve2_pkg::ALU_ADD; // Multiplication operation is done with ADD instruction
                 mac_en_2_cycles_d = 1'b0;
 
                 state_d = ADD; // Net state is ADD

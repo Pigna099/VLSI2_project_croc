@@ -155,6 +155,16 @@ module cve2_id_stage #(
 
   import cve2_pkg::*;
 
+  // USER CODE BEGIN ================================================
+  // MAC SIGNALS
+  logic mac_en;
+  logic mac_en_2_cycles;
+  logic alu_operator_MAC;
+  logic rf_raddr_a_MUX;
+  logic rf_waddr_id_MUX;
+  // USER CODE END ==================================================
+
+
   // Decoder/Controller, ID stage internal signals
   logic        illegal_insn_dec;
   logic        ebrk_insn;
@@ -204,18 +214,12 @@ module cve2_id_stage #(
   // Read enables should only be asserted for valid and legal instructions
   assign rf_ren_a = instr_valid_i & ~instr_fetch_err_i & ~illegal_insn_o & rf_ren_a_dec;
   assign rf_ren_b = instr_valid_i & ~instr_fetch_err_i & ~illegal_insn_o & rf_ren_b_dec;
-  //==========================================================
-  assign rf_ren_c = instr_valid_i & ~instr_fetch_err_i & ~illegal_insn_o & rf_ren_c_dec; // USER CODE
 
   assign rf_ren_a_o = rf_ren_a;
   assign rf_ren_b_o = rf_ren_b;
-  //==========================================================
-  assign rf_ren_c_o = rf_ren_c; // USER CODE
 
   logic [31:0] rf_rdata_a_fwd;
   logic [31:0] rf_rdata_b_fwd;
-  //==========================================================
-  logic [31:0] rf_rdata_c_fwd; // USER CODE
 
   // ALU Control
   alu_op_e     alu_operator;
@@ -378,13 +382,15 @@ module cve2_id_stage #(
     .rf_wdata_sel_o(rf_wdata_sel),
     .rf_we_o       (rf_we_dec),
 
-    .rf_raddr_a_o(rf_raddr_a_o),
+    //.rf_raddr_a_o(rf_raddr_a_o), // ORI CODE
+    .rf_raddr_a_o(rf_raddr_a_MUX),
     .rf_raddr_b_o(rf_raddr_b_o),
-    .rf_waddr_o  (rf_waddr_id_o),
+    //.rf_waddr_o  (rf_waddr_id_o), // ORI CODE
+    .rf_waddr_o  (rf_waddr_id_MUX),
     .rf_ren_a_o  (rf_ren_a_dec),
     .rf_ren_b_o  (rf_ren_b_dec),
     //===========================================================
-    .mac_en_o    (rf_ren_c_dec),  // USER CODE
+    .mac_en_o    (mac_en),  // USER CODE
 
     // ALU
     .alu_operator_o    (alu_operator),
@@ -419,15 +425,14 @@ module cve2_id_stage #(
   /////////////
   // MAC MUX //
   /////////////
-  
-  assign mux_out = mac_en_o ? y : x;
 
   cve2_mac_controller mac__controller_i (
-    .alu_operator_i (alu_operator_i),
-    .mac_en_i       (mac_en_o),
-    .op_b_i        (alu_operand_b_i),
-    .acc_i         (alu_operand_c_i),
-    .result_o      (mac_result)
+    .clk_i          (clk_i),
+    .rst_ni         (rst_ni),
+    .alu_operator_i (alu_operator),
+    .mac_en_i       (mac_en),
+    .alu_operator_o (alu_operator_MAC),
+    .mac_en_2_cycles_o (mac_en_2_cycles),
   );
 
   // =========USER CODE END================================================
@@ -567,9 +572,17 @@ module cve2_id_stage #(
   // asserting it for an illegal csr access would result in a flush that would need to deassert it).
   assign csr_op_en_o             = csr_access_o & instr_executing & instr_id_done_o;
 
-  assign alu_operator_ex_o           = alu_operator;
+  // ==========USER CODE BEGIN================================================
+  // MAC MUX
+  assign alu_operand_b_ex_o = mac_en_2_cycles ? result_ex_i : alu_operand_b;
+  assign rf_raddr_a_o = mac_en_2_cycles ? rf_waddr_id_MUX : rf_raddr_a_MUX;
+
+  // ==========USER CODE END================================================
+
+  //assign alu_operator_ex_o           = alu_operator;
+  assign alu_operator_ex_o           = alu_operator_MAC; // USER CODE
   assign alu_operand_a_ex_o          = alu_operand_a;
-  assign alu_operand_b_ex_o          = alu_operand_b;
+  //assign alu_operand_b_ex_o          = alu_operand_b; //ORIGINAL LINE
 
   assign mult_en_ex_o                = mult_en_id;
   assign div_en_ex_o                 = div_en_id;

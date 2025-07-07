@@ -469,8 +469,14 @@ module cve2_decoder #(
             {7'b100_0000, 3'b000}: begin // MAC
               mac_en_o = 1'b1;  // read enable for rd
               alu_operator_o = ALU_MAC;
+              
+              // MUL instruction
+              multdiv_operator_o    = MD_OP_MULL;
+              multdiv_signed_mode_o = 2'b00;
+              illegal_insn          = (RV32M == RV32MNone) ? 1'b1 : 1'b0;
+
             end
-            //FINISH ADDED CODE//
+            //FINISH ADDED CODE ===================================================================
 
             // RV32B zba
             {7'b001_0000, 3'b010}, // sh1add

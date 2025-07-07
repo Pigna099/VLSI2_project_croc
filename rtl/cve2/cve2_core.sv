@@ -471,10 +471,6 @@ module cve2_core import cve2_pkg::*; #(
     .rf_rdata_b_i      (rf_rdata_b),
     .rf_ren_a_o        (rf_ren_a),
     .rf_ren_b_o        (rf_ren_b),
-    //======================================================================================
-    .rf_raddr_c_o      (rf_raddr_c),  // USER CODE
-    .rf_rdata_c_i      (rf_rdata_c),  // USER CODE
-    .rf_ren_c_o        (rf_ren_c),    // USER CODE
 
     .rf_waddr_id_o     (rf_waddr_id),
     .rf_wdata_id_o     (rf_wdata_id),
