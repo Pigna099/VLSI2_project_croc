@@ -149,6 +149,7 @@ rtl/cve2/cve2_id_stage.sv
 rtl/cve2/cve2_prefetch_buffer.sv
 rtl/cve2/cve2_if_stage.sv
 rtl/cve2/cve2_core.sv
+rtl/cve2/cve2_mac_controller.sv
 rtl/obi/obi_pkg.sv
 rtl/obi/obi_intf.sv
 rtl/obi/obi_rready_converter.sv
