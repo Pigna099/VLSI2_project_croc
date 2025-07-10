@@ -661,7 +661,6 @@ module cve2_core import cve2_pkg::*; #(
     .rdata_a_o(rf_rdata_a),
     .raddr_b_i(rf_raddr_b),
     .rdata_b_o(rf_rdata_b),
-    .rdata_c_o(rf_rdata_c),
     .waddr_a_i(rf_waddr_wb),
     .wdata_a_i(rf_wdata_wb),
     .we_a_i   (rf_we_wb)

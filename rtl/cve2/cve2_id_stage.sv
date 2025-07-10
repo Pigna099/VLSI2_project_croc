@@ -159,9 +159,10 @@ module cve2_id_stage #(
   // MAC SIGNALS
   logic mac_en;
   logic mac_en_2_cycles;
-  logic alu_operator_MAC;
+  cve2_pkg::alu_op_e alu_operator_MAC;
   logic rf_raddr_a_MUX;
   logic rf_waddr_id_MUX;
+  logic result_ex_i_q;
   // USER CODE END ==================================================
 
 
@@ -422,9 +423,9 @@ module cve2_id_stage #(
   );
 
   // ========USER CODE BEGIN================================================
-  /////////////
-  // MAC MUX //
-  /////////////
+  ////////////////////
+  // MAC controller //
+  ////////////////////
 
   cve2_mac_controller mac__controller_i (
     .clk_i          (clk_i),
@@ -432,8 +433,17 @@ module cve2_id_stage #(
     .alu_operator_i (alu_operator),
     .mac_en_i       (mac_en),
     .alu_operator_o (alu_operator_MAC),
-    .mac_en_2_cycles_o (mac_en_2_cycles),
+    .mac_en_2_cycles_o (mac_en_2_cycles)
   );
+
+  // FlipFlop for backpropagation of the result_ex_i signal
+  always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+      result_ex_i_q <= 1'b0;
+    end else begin
+      result_ex_i_q <= result_ex_i;
+    end
+  end
 
   // =========USER CODE END================================================
 
@@ -574,7 +584,7 @@ module cve2_id_stage #(
 
   // ==========USER CODE BEGIN================================================
   // MAC MUX
-  assign alu_operand_b_ex_o = mac_en_2_cycles ? result_ex_i : alu_operand_b;
+  assign alu_operand_b_ex_o = mac_en_2_cycles ? result_ex_i_q : alu_operand_b;
   assign rf_raddr_a_o = mac_en_2_cycles ? rf_waddr_id_MUX : rf_raddr_a_MUX;
 
   // ==========USER CODE END================================================

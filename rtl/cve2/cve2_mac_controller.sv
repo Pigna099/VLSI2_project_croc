@@ -37,7 +37,7 @@ module cve2_mac_controller (
 
     // Outputs
     output cve2_pkg::alu_op_e       alu_operator_o, // Output ALU operator
-    output logic                    mac_en_2_cycles_o, // MAC enable for 2 cycles
+    output logic                    mac_en_2_cycles_o // MAC enable for 2 cycles
 );
     // In idle mode the signal must be transparent
     typedef enum logic [1:0] {IDLE, MUL, ADD} mac_state_e;
