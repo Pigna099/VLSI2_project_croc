@@ -37564,15 +37564,13 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   wire \$5y ;
   wire \$6y ;
   wire [11:0] \$7y ;
-  /* src = "rtl/cve2/cve2_core.sv:184.16" */
-  wire [31:0] alu_adder_result_ex;
-  /* src = "rtl/cve2/cve2_core.sv:179.16" */
-  wire [31:0] alu_operand_a_ex;
-  /* src = "rtl/cve2/cve2_core.sv:180.16" */
-  wire [31:0] alu_operand_b_ex;
-  /* src = "rtl/cve2/cve2_core.sv:182.16" */
-  wire [31:0] alu_operand_c_ex;
   /* src = "rtl/cve2/cve2_core.sv:178.16" */
+  wire [31:0] alu_adder_result_ex;
+  /* src = "rtl/cve2/cve2_core.sv:175.16" */
+  wire [31:0] alu_operand_a_ex;
+  /* src = "rtl/cve2/cve2_core.sv:176.16" */
+  wire [31:0] alu_operand_b_ex;
+  /* src = "rtl/cve2/cve2_core.sv:174.16" */
   wire [6:0] alu_operator_ex;
   /* src = "rtl/cve2/cve2_core.sv:36.40" */
   input [31:0] boot_addr_i;
@@ -37590,47 +37588,47 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   /* src = "rtl/cve2/cve2_core.sv:67.40" */
   output [127:0] crash_dump_o;
   wire [127:0] crash_dump_o;
-  /* src = "rtl/cve2/cve2_core.sv:198.16" */
+  /* src = "rtl/cve2/cve2_core.sv:192.16" */
   wire csr_access;
-  /* src = "rtl/cve2/cve2_core.sv:201.16" */
+  /* src = "rtl/cve2/cve2_core.sv:195.16" */
   wire [11:0] csr_addr;
-  /* src = "rtl/cve2/cve2_core.sv:233.26" */
+  /* src = "rtl/cve2/cve2_core.sv:227.26" */
   wire [31:0] csr_depc;
-  /* src = "rtl/cve2/cve2_core.sv:233.16" */
+  /* src = "rtl/cve2/cve2_core.sv:227.16" */
   wire [31:0] csr_mepc;
-  /* src = "rtl/cve2/cve2_core.sv:232.16" */
+  /* src = "rtl/cve2/cve2_core.sv:226.16" */
   wire csr_mstatus_mie;
-  /* src = "rtl/cve2/cve2_core.sv:250.16" */
-  wire csr_mstatus_tw;
-  /* src = "rtl/cve2/cve2_core.sv:249.16" */
-  wire [31:0] csr_mtval;
-  /* src = "rtl/cve2/cve2_core.sv:248.16" */
-  wire [31:0] csr_mtvec;
-  /* src = "rtl/cve2/cve2_core.sv:247.16" */
-  wire csr_mtvec_init;
-  /* src = "rtl/cve2/cve2_core.sv:199.16" */
-  wire [1:0] csr_op;
-  /* src = "rtl/cve2/cve2_core.sv:200.16" */
-  wire csr_op_en;
-  /* src = "rtl/cve2/cve2_core.sv:236.17" */
-  wire [135:0] csr_pmp_addr;
-  /* src = "rtl/cve2/cve2_core.sv:237.17" */
-  wire [23:0] csr_pmp_cfg;
-  /* src = "rtl/cve2/cve2_core.sv:238.17" */
-  wire [2:0] csr_pmp_mseccfg;
-  /* src = "rtl/cve2/cve2_core.sv:202.16" */
-  wire [31:0] csr_rdata;
-  /* src = "rtl/cve2/cve2_core.sv:245.16" */
-  wire csr_restore_dret_id;
   /* src = "rtl/cve2/cve2_core.sv:244.16" */
-  wire csr_restore_mret_id;
-  /* src = "rtl/cve2/cve2_core.sv:246.16" */
-  wire csr_save_cause;
+  wire csr_mstatus_tw;
   /* src = "rtl/cve2/cve2_core.sv:243.16" */
-  wire csr_save_id;
+  wire [31:0] csr_mtval;
   /* src = "rtl/cve2/cve2_core.sv:242.16" */
+  wire [31:0] csr_mtvec;
+  /* src = "rtl/cve2/cve2_core.sv:241.16" */
+  wire csr_mtvec_init;
+  /* src = "rtl/cve2/cve2_core.sv:193.16" */
+  wire [1:0] csr_op;
+  /* src = "rtl/cve2/cve2_core.sv:194.16" */
+  wire csr_op_en;
+  /* src = "rtl/cve2/cve2_core.sv:230.17" */
+  wire [135:0] csr_pmp_addr;
+  /* src = "rtl/cve2/cve2_core.sv:231.17" */
+  wire [23:0] csr_pmp_cfg;
+  /* src = "rtl/cve2/cve2_core.sv:232.17" */
+  wire [2:0] csr_pmp_mseccfg;
+  /* src = "rtl/cve2/cve2_core.sv:196.16" */
+  wire [31:0] csr_rdata;
+  /* src = "rtl/cve2/cve2_core.sv:239.16" */
+  wire csr_restore_dret_id;
+  /* src = "rtl/cve2/cve2_core.sv:238.16" */
+  wire csr_restore_mret_id;
+  /* src = "rtl/cve2/cve2_core.sv:240.16" */
+  wire csr_save_cause;
+  /* src = "rtl/cve2/cve2_core.sv:237.16" */
+  wire csr_save_id;
+  /* src = "rtl/cve2/cve2_core.sv:236.16" */
   wire csr_save_if;
-  /* src = "rtl/cve2/cve2_core.sv:203.16" */
+  /* src = "rtl/cve2/cve2_core.sv:197.16" */
   wire [31:0] csr_wdata;
   /* src = "rtl/cve2/cve2_core.sv:149.16" */
   wire ctrl_busy;
@@ -37652,7 +37650,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   /* src = "rtl/cve2/cve2_core.sv:47.40" */
   output data_req_o;
   wire data_req_o;
-  /* src = "rtl/cve2/cve2_core.sv:240.17" */
+  /* src = "rtl/cve2/cve2_core.sv:234.17" */
   wire data_req_out;
   /* src = "rtl/cve2/cve2_core.sv:49.40" */
   input data_rvalid_i;
@@ -37663,28 +37661,28 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   /* src = "rtl/cve2/cve2_core.sv:50.40" */
   output data_we_o;
   wire data_we_o;
-  /* src = "rtl/cve2/cve2_core.sv:256.16" */
+  /* src = "rtl/cve2/cve2_core.sv:250.16" */
   wire [2:0] debug_cause;
-  /* src = "rtl/cve2/cve2_core.sv:257.16" */
+  /* src = "rtl/cve2/cve2_core.sv:251.16" */
   wire debug_csr_save;
-  /* src = "rtl/cve2/cve2_core.sv:259.16" */
+  /* src = "rtl/cve2/cve2_core.sv:253.16" */
   wire debug_ebreakm;
-  /* src = "rtl/cve2/cve2_core.sv:260.16" */
+  /* src = "rtl/cve2/cve2_core.sv:254.16" */
   wire debug_ebreaku;
-  /* src = "rtl/cve2/cve2_core.sv:255.16" */
+  /* src = "rtl/cve2/cve2_core.sv:249.16" */
   wire debug_mode;
   /* src = "rtl/cve2/cve2_core.sv:66.40" */
   input debug_req_i;
   wire debug_req_i;
-  /* src = "rtl/cve2/cve2_core.sv:258.16" */
+  /* src = "rtl/cve2/cve2_core.sv:252.16" */
   wire debug_single_step;
-  /* src = "rtl/cve2/cve2_core.sv:189.16" */
+  /* src = "rtl/cve2/cve2_core.sv:183.16" */
   wire div_en_ex;
-  /* src = "rtl/cve2/cve2_core.sv:191.16" */
+  /* src = "rtl/cve2/cve2_core.sv:185.16" */
   wire div_sel_ex;
-  /* src = "rtl/cve2/cve2_core.sv:227.16" */
+  /* src = "rtl/cve2/cve2_core.sv:221.16" */
   wire en_wb;
-  /* src = "rtl/cve2/cve2_core.sv:217.16" */
+  /* src = "rtl/cve2/cve2_core.sv:211.16" */
   wire ex_valid;
   /* src = "rtl/cve2/cve2_core.sv:135.16" */
   wire [6:0] exc_cause;
@@ -37693,26 +37691,26 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   /* src = "rtl/cve2/cve2_core.sv:105.40" */
   input fetch_enable_i;
   wire fetch_enable_i;
-  /* src = "rtl/cve2/cve2_core.sv:807.18" */
+  /* src = "rtl/cve2/cve2_core.sv:801.18" */
   wire [135:0] \g_no_pmp.unused_csr_pmp_addr ;
-  /* src = "rtl/cve2/cve2_core.sv:808.18" */
+  /* src = "rtl/cve2/cve2_core.sv:802.18" */
   wire [23:0] \g_no_pmp.unused_csr_pmp_cfg ;
-  /* src = "rtl/cve2/cve2_core.sv:809.19" */
+  /* src = "rtl/cve2/cve2_core.sv:803.19" */
   wire [2:0] \g_no_pmp.unused_csr_pmp_mseccfg ;
-  /* src = "rtl/cve2/cve2_core.sv:806.16" */
+  /* src = "rtl/cve2/cve2_core.sv:800.16" */
   wire [1:0] \g_no_pmp.unused_priv_lvl_ls ;
   /* src = "rtl/cve2/cve2_core.sv:35.40" */
   input [31:0] hart_id_i;
   wire [31:0] hart_id_i;
-  /* src = "rtl/cve2/cve2_core.sv:216.16" */
+  /* src = "rtl/cve2/cve2_core.sv:210.16" */
   wire id_in_ready;
   /* src = "rtl/cve2/cve2_core.sv:150.16" */
   wire if_busy;
   /* src = "rtl/cve2/cve2_core.sv:123.16" */
   wire illegal_c_insn_id;
-  /* src = "rtl/cve2/cve2_core.sv:204.16" */
+  /* src = "rtl/cve2/cve2_core.sv:198.16" */
   wire illegal_csr_insn_id;
-  /* src = "rtl/cve2/cve2_core.sv:280.16" */
+  /* src = "rtl/cve2/cve2_core.sv:274.16" */
   wire illegal_insn_id;
   /* src = "rtl/cve2/cve2_core.sv:126.16" */
   wire [67:0] imd_val_d_ex;
@@ -37735,7 +37733,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   /* src = "rtl/cve2/cve2_core.sv:40.40" */
   input instr_gnt_i;
   wire instr_gnt_i;
-  /* src = "rtl/cve2/cve2_core.sv:265.16" */
+  /* src = "rtl/cve2/cve2_core.sv:259.16" */
   wire instr_id_done;
   /* src = "rtl/cve2/cve2_core.sv:119.16" */
   wire instr_is_compressed_id;
@@ -37752,9 +37750,9 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   wire [31:0] instr_rdata_i;
   /* src = "rtl/cve2/cve2_core.sv:115.16" */
   wire [31:0] instr_rdata_id;
-  /* src = "rtl/cve2/cve2_core.sv:224.16" */
+  /* src = "rtl/cve2/cve2_core.sv:218.16" */
   wire instr_req_gated;
-  /* src = "rtl/cve2/cve2_core.sv:223.16" */
+  /* src = "rtl/cve2/cve2_core.sv:217.16" */
   wire instr_req_int;
   /* src = "rtl/cve2/cve2_core.sv:39.40" */
   output instr_req_o;
@@ -37784,7 +37782,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   /* src = "rtl/cve2/cve2_core.sv:59.40" */
   input irq_timer_i;
   wire irq_timer_i;
-  /* src = "rtl/cve2/cve2_core.sv:231.16" */
+  /* src = "rtl/cve2/cve2_core.sv:225.16" */
   wire [18:0] irqs;
   /* src = "rtl/cve2/cve2_core.sv:141.16" */
   wire lsu_addr_incr_req;
@@ -37794,35 +37792,35 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   wire lsu_busy;
   /* src = "rtl/cve2/cve2_core.sv:137.16" */
   wire lsu_load_err;
-  /* src = "rtl/cve2/cve2_core.sv:212.16" */
+  /* src = "rtl/cve2/cve2_core.sv:206.16" */
   wire lsu_req;
-  /* src = "rtl/cve2/cve2_core.sv:220.16" */
+  /* src = "rtl/cve2/cve2_core.sv:214.16" */
   wire lsu_resp_err;
-  /* src = "rtl/cve2/cve2_core.sv:219.16" */
+  /* src = "rtl/cve2/cve2_core.sv:213.16" */
   wire lsu_resp_valid;
-  /* src = "rtl/cve2/cve2_core.sv:211.16" */
+  /* src = "rtl/cve2/cve2_core.sv:205.16" */
   wire lsu_sign_ext;
   /* src = "rtl/cve2/cve2_core.sv:138.16" */
   wire lsu_store_err;
-  /* src = "rtl/cve2/cve2_core.sv:210.16" */
+  /* src = "rtl/cve2/cve2_core.sv:204.16" */
   wire [1:0] lsu_type;
-  /* src = "rtl/cve2/cve2_core.sv:213.16" */
+  /* src = "rtl/cve2/cve2_core.sv:207.16" */
   wire [31:0] lsu_wdata;
-  /* src = "rtl/cve2/cve2_core.sv:209.16" */
+  /* src = "rtl/cve2/cve2_core.sv:203.16" */
   wire lsu_we;
-  /* src = "rtl/cve2/cve2_core.sv:188.16" */
+  /* src = "rtl/cve2/cve2_core.sv:182.16" */
   wire mult_en_ex;
-  /* src = "rtl/cve2/cve2_core.sv:190.16" */
+  /* src = "rtl/cve2/cve2_core.sv:184.16" */
   wire mult_sel_ex;
-  /* src = "rtl/cve2/cve2_core.sv:194.16" */
+  /* src = "rtl/cve2/cve2_core.sv:188.16" */
   wire [31:0] multdiv_operand_a_ex;
-  /* src = "rtl/cve2/cve2_core.sv:195.16" */
+  /* src = "rtl/cve2/cve2_core.sv:189.16" */
   wire [31:0] multdiv_operand_b_ex;
-  /* src = "rtl/cve2/cve2_core.sv:192.16" */
+  /* src = "rtl/cve2/cve2_core.sv:186.16" */
   wire [1:0] multdiv_operator_ex;
-  /* src = "rtl/cve2/cve2_core.sv:193.16" */
+  /* src = "rtl/cve2/cve2_core.sv:187.16" */
   wire [1:0] multdiv_signed_mode_ex;
-  /* src = "rtl/cve2/cve2_core.sv:230.16" */
+  /* src = "rtl/cve2/cve2_core.sv:224.16" */
   wire nmi_mode;
   /* src = "rtl/cve2/cve2_core.sv:125.16" */
   wire [31:0] pc_id;
@@ -37832,69 +37830,63 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   wire [2:0] pc_mux_id;
   /* src = "rtl/cve2/cve2_core.sv:132.16" */
   wire pc_set;
-  /* src = "rtl/cve2/cve2_core.sv:274.16" */
-  wire perf_branch;
-  /* src = "rtl/cve2/cve2_core.sv:272.16" */
-  wire perf_div_wait;
-  /* src = "rtl/cve2/cve2_core.sv:270.16" */
-  wire perf_dside_wait;
   /* src = "rtl/cve2/cve2_core.sv:268.16" */
+  wire perf_branch;
+  /* src = "rtl/cve2/cve2_core.sv:266.16" */
+  wire perf_div_wait;
+  /* src = "rtl/cve2/cve2_core.sv:264.16" */
+  wire perf_dside_wait;
+  /* src = "rtl/cve2/cve2_core.sv:262.16" */
   wire perf_instr_ret_compressed_wb;
-  /* src = "rtl/cve2/cve2_core.sv:267.16" */
+  /* src = "rtl/cve2/cve2_core.sv:261.16" */
   wire perf_instr_ret_wb;
-  /* src = "rtl/cve2/cve2_core.sv:269.16" */
+  /* src = "rtl/cve2/cve2_core.sv:263.16" */
   wire perf_iside_wait;
-  /* src = "rtl/cve2/cve2_core.sv:273.16" */
+  /* src = "rtl/cve2/cve2_core.sv:267.16" */
   wire perf_jump;
-  /* src = "rtl/cve2/cve2_core.sv:276.16" */
+  /* src = "rtl/cve2/cve2_core.sv:270.16" */
   wire perf_load;
-  /* src = "rtl/cve2/cve2_core.sv:277.16" */
-  wire perf_store;
-  /* src = "rtl/cve2/cve2_core.sv:275.16" */
-  wire perf_tbranch;
   /* src = "rtl/cve2/cve2_core.sv:271.16" */
+  wire perf_store;
+  /* src = "rtl/cve2/cve2_core.sv:269.16" */
+  wire perf_tbranch;
+  /* src = "rtl/cve2/cve2_core.sv:265.16" */
   wire perf_wfi_wait;
-  /* src = "rtl/cve2/cve2_core.sv:239.17" */
+  /* src = "rtl/cve2/cve2_core.sv:233.17" */
   wire [2:0] pmp_req_err;
-  /* src = "rtl/cve2/cve2_core.sv:251.16" */
+  /* src = "rtl/cve2/cve2_core.sv:245.16" */
   wire [1:0] priv_mode_id;
-  /* src = "rtl/cve2/cve2_core.sv:252.16" */
+  /* src = "rtl/cve2/cve2_core.sv:246.16" */
   wire [1:0] priv_mode_lsu;
-  /* src = "rtl/cve2/cve2_core.sv:185.16" */
+  /* src = "rtl/cve2/cve2_core.sv:179.16" */
   wire [31:0] result_ex;
   /* src = "rtl/cve2/cve2_core.sv:154.16" */
   wire [4:0] rf_raddr_a;
   /* src = "rtl/cve2/cve2_core.sv:156.16" */
   wire [4:0] rf_raddr_b;
-  /* src = "rtl/cve2/cve2_core.sv:159.16" */
-  wire [4:0] rf_raddr_c;
   /* src = "rtl/cve2/cve2_core.sv:155.16" */
   wire [31:0] rf_rdata_a;
   /* src = "rtl/cve2/cve2_core.sv:157.16" */
   wire [31:0] rf_rdata_b;
-  /* src = "rtl/cve2/cve2_core.sv:160.16" */
-  wire [31:0] rf_rdata_c;
-  /* src = "rtl/cve2/cve2_core.sv:163.16" */
+  /* src = "rtl/cve2/cve2_core.sv:159.16" */
   wire rf_ren_a;
-  /* src = "rtl/cve2/cve2_core.sv:164.16" */
+  /* src = "rtl/cve2/cve2_core.sv:160.16" */
   wire rf_ren_b;
-  /* src = "rtl/cve2/cve2_core.sv:161.16" */
-  wire rf_ren_c;
-  /* src = "rtl/cve2/cve2_core.sv:173.16" */
-  wire [4:0] rf_waddr_id;
-  /* src = "rtl/cve2/cve2_core.sv:165.16" */
-  wire [4:0] rf_waddr_wb;
-  /* src = "rtl/cve2/cve2_core.sv:174.16" */
-  wire [31:0] rf_wdata_id;
   /* src = "rtl/cve2/cve2_core.sv:169.16" */
-  wire [31:0] rf_wdata_lsu;
-  /* src = "rtl/cve2/cve2_core.sv:166.16" */
-  wire [31:0] rf_wdata_wb;
-  /* src = "rtl/cve2/cve2_core.sv:175.16" */
-  wire rf_we_id;
-  /* src = "rtl/cve2/cve2_core.sv:171.16" */
-  wire rf_we_lsu;
+  wire [4:0] rf_waddr_id;
+  /* src = "rtl/cve2/cve2_core.sv:161.16" */
+  wire [4:0] rf_waddr_wb;
   /* src = "rtl/cve2/cve2_core.sv:170.16" */
+  wire [31:0] rf_wdata_id;
+  /* src = "rtl/cve2/cve2_core.sv:165.16" */
+  wire [31:0] rf_wdata_lsu;
+  /* src = "rtl/cve2/cve2_core.sv:162.16" */
+  wire [31:0] rf_wdata_wb;
+  /* src = "rtl/cve2/cve2_core.sv:171.16" */
+  wire rf_we_id;
+  /* src = "rtl/cve2/cve2_core.sv:167.16" */
+  wire rf_we_lsu;
+  /* src = "rtl/cve2/cve2_core.sv:166.16" */
   wire rf_we_wb;
   /* src = "rtl/cve2/cve2_core.sv:31.40" */
   input rst_ni;
@@ -37902,15 +37894,15 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
   /* src = "rtl/cve2/cve2_core.sv:33.40" */
   input test_en_i;
   wire test_en_i;
-  /* src = "rtl/cve2/cve2_core.sv:261.16" */
+  /* src = "rtl/cve2/cve2_core.sv:255.16" */
   wire trigger_match;
-  /* src = "rtl/cve2/cve2_core.sv:280.33" */
+  /* src = "rtl/cve2/cve2_core.sv:274.33" */
   wire unused_illegal_insn_id;
-  /* src = "rtl/cve2/cve2_core.sv:1350.30" */
+  /* src = "rtl/cve2/cve2_core.sv:1344.30" */
   wire unused_instr_id_done;
-  /* src = "rtl/cve2/cve2_core.sv:1350.9" */
+  /* src = "rtl/cve2/cve2_core.sv:1344.9" */
   wire unused_instr_new_id;
-  /* src = "rtl/cve2/cve2_core.sv:288.24-288.43" */
+  /* src = "rtl/cve2/cve2_core.sv:282.24-282.43" */
   \$or  #(
     .A_SIGNED(32'd0),
     .A_WIDTH(32'd1),
@@ -37922,7 +37914,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .B(if_busy),
     .Y(\$0y )
   );
-  /* src = "rtl/cve2/cve2_core.sv:288.24-288.54" */
+  /* src = "rtl/cve2/cve2_core.sv:282.24-282.54" */
   \$or  #(
     .A_SIGNED(32'd0),
     .A_WIDTH(32'd1),
@@ -37934,7 +37926,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .B(lsu_busy),
     .Y(\$1y )
   );
-  /* src = "rtl/cve2/cve2_core.sv:351.42-351.57" */
+  /* src = "rtl/cve2/cve2_core.sv:345.42-345.57" */
   \$not  #(
     .A_SIGNED(32'd0),
     .A_WIDTH(32'd1),
@@ -37943,7 +37935,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .A(instr_valid_id),
     .Y(\$2y )
   );
-  /* src = "rtl/cve2/cve2_core.sv:351.28-351.57" */
+  /* src = "rtl/cve2/cve2_core.sv:345.28-345.57" */
   \$and  #(
     .A_SIGNED(32'd0),
     .A_WIDTH(32'd1),
@@ -37955,7 +37947,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .B(\$2y ),
     .Y(\$3y )
   );
-  /* src = "rtl/cve2/cve2_core.sv:538.25-538.53" */
+  /* src = "rtl/cve2/cve2_core.sv:532.25-532.53" */
   \$or  #(
     .A_SIGNED(32'd0),
     .A_WIDTH(32'd1),
@@ -37967,7 +37959,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .B(lsu_store_err),
     .Y(\$6y )
   );
-  /* src = "rtl/cve2/cve2_core.sv:675.34-675.77" */
+  /* src = "rtl/cve2/cve2_core.sv:669.34-669.77" */
   \$mux  #(
     .WIDTH(32'd12)
   ) \$7  (
@@ -37977,7 +37969,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .Y(\$7y )
   );
   /* keep_hierarchy = 32'd1 */
-  /* src = "rtl/cve2/cve2_core.sv:688.5" */
+  /* src = "rtl/cve2/cve2_core.sv:682.5" */
   \cve2_cs_registers$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex.cs_registers_i  cs_registers_i (
     .boot_addr_i(boot_addr_i),
     .branch_i(perf_branch),
@@ -38036,7 +38028,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .trigger_match_o(trigger_match),
     .wfi_wait_i(perf_wfi_wait)
   );
-  /* src = "rtl/cve2/cve2_core.sv:498.5" */
+  /* src = "rtl/cve2/cve2_core.sv:492.5" */
   \cve2_ex_block$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex.ex_block_i  ex_block_i (
     .alu_adder_result_ex_o(alu_adder_result_ex),
     .alu_instr_first_cycle_i(instr_first_cycle_id),
@@ -38061,7 +38053,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .result_ex_o(result_ex),
     .rst_ni(rst_ni)
   );
-  /* src = "rtl/cve2/cve2_core.sv:364.5" */
+  /* src = "rtl/cve2/cve2_core.sv:358.5" */
   \cve2_id_stage$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex.id_stage_i  id_stage_i (
     .alu_operand_a_ex_o(alu_operand_a_ex),
     .alu_operand_b_ex_o(alu_operand_b_ex),
@@ -38157,7 +38149,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .rst_ni(rst_ni),
     .trigger_match_i(trigger_match)
   );
-  /* src = "rtl/cve2/cve2_core.sv:297.5" */
+  /* src = "rtl/cve2/cve2_core.sv:291.5" */
   \cve2_if_stage$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex.if_stage_i  if_stage_i (
     .boot_addr_i(boot_addr_i),
     .branch_target_ex_i(branch_target_ex),
@@ -38195,7 +38187,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .req_i(instr_req_gated),
     .rst_ni(rst_ni)
   );
-  /* src = "rtl/cve2/cve2_core.sv:540.24" */
+  /* src = "rtl/cve2/cve2_core.sv:534.24" */
   \cve2_load_store_unit$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex.load_store_unit_i  load_store_unit_i (
     .adder_result_ex_i(alu_adder_result_ex),
     .addr_incr_req_o(lsu_addr_incr_req),
@@ -38227,7 +38219,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .store_err_o(lsu_store_err)
   );
   /* keep_hierarchy = 32'd1 */
-  /* src = "rtl/cve2/cve2_core.sv:654.5" */
+  /* src = "rtl/cve2/cve2_core.sv:648.5" */
   \cve2_register_file_ff$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex.register_file_i  register_file_i (
     .clk_i(clk_i),
     .raddr_a_i(rf_raddr_a),
@@ -38240,7 +38232,7 @@ module \cve2_core$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex (clk_i, rst_ni,
     .wdata_a_i(rf_wdata_wb),
     .we_a_i(rf_we_wb)
   );
-  /* src = "rtl/cve2/cve2_core.sv:586.5" */
+  /* src = "rtl/cve2/cve2_core.sv:580.5" */
   \cve2_wb$croc_chip.i_croc_soc.i_croc.i_core_wrap.i_ibex.wb_i  wb_i (
     .clk_i(clk_i),
     .en_wb_i(en_wb),
