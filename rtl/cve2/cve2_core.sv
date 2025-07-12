@@ -155,10 +155,6 @@ module cve2_core import cve2_pkg::*; #(
   logic [31:0] rf_rdata_a;
   logic [4:0]  rf_raddr_b;
   logic [31:0] rf_rdata_b;
-  //======================================================================================
-  logic [4:0]  rf_raddr_c;  // USER CODE: read value from rd
-  logic [31:0] rf_rdata_c;
-  logic        rf_ren_c;
 
   logic        rf_ren_a;
   logic        rf_ren_b;
@@ -178,8 +174,6 @@ module cve2_core import cve2_pkg::*; #(
   alu_op_e     alu_operator_ex;
   logic [31:0] alu_operand_a_ex;
   logic [31:0] alu_operand_b_ex;
-  // ====================================================================================
-  logic [31:0] alu_operand_c_ex;             // USER CODE: read value from rd
 
   logic [31:0] alu_adder_result_ex;    // Used to forward computed address to LSU
   logic [31:0] result_ex;
