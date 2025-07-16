@@ -21,7 +21,7 @@ read_liberty ${libdir}/sg13g2_sram/lib/RM_IHPSG13_1P_256x64_c2_bm_bist_typ_1p20V
 read_liberty ${libdir}/sg13g2_io/lib/sg13g2_io_typ_1p2V_3p3V_25C.lib
 
 # === Read Synthesized Netlist ===
-read_verilog yosys/out/04_${top}_yosys.v
+read_verilog yosys/out/${top}_yosys.v
 
 # === Link Top Module ===
 link_design ${top}  

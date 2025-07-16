@@ -7,6 +7,10 @@ import os
 
 errors = 0
 
+print("[INFO] Using .def file '{0}'".format(in_def))
+print("[INFO] Using technology file '{0}'".format(tech_file))
+print("[INFO] Using layer map file '{0}'".format(layer_map))
+
 # Load technology file
 tech = pya.Technology()
 tech.load(tech_file)

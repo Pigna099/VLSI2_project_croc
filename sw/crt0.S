@@ -30,8 +30,11 @@ _start:
   li      x13, 0
   li      x14, 0
   li      x15, 0
+
   call main
+  
 _eoc:
   la      t0, status
   sw      a0, 0(t0)
   wfi
+

@@ -1,0 +1,3 @@
+Vtb_croc_soc_obi_mux__pi10__DepSet_h71de91f3__0.o: \
+ Vtb_croc_soc_obi_mux__pi10__DepSet_h71de91f3__0.cpp Vtb_croc_soc__pch.h \
+ Vtb_croc_soc__Syms.h Vtb_croc_soc_obi_mux__pi10.h

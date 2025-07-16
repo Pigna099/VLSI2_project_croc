@@ -1,0 +1,2 @@
+Vtb_croc_soc_obi_mux__pi10__Slow.o: Vtb_croc_soc_obi_mux__pi10__Slow.cpp \
+ Vtb_croc_soc__pch.h Vtb_croc_soc__Syms.h Vtb_croc_soc_obi_mux__pi10.h

@@ -12,8 +12,10 @@ cd $klayout_dir
 ### project  ###
 ################
 top_design=${TOP_DESIGN:-"croc_chip"}
-def_path=${DEF_PATH:-"$root_dir/openroad/out/croc.def"}
+def_path=${DEF_PATH:-"$root_dir/openroad/out/croc_chip.def"}
 
+echo "Top design: $top_design"
+echo "DEF path:   $def_path"
 
 ################
 ## technology ##
@@ -74,7 +76,6 @@ done
 sed "/<lef-files><\/lef-files>/c $lef_files" "$tech" > $KLAYOUT_HOME/tech/sg13g2.lyt
 
 echo "$gds" > $KLAYOUT_HOME/tech/tech_gds.f
-
 
 klayout_cmd="$KLAYOUT -zz \
           -rd design_name=\"$top_design\" \
